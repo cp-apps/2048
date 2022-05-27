@@ -25,10 +25,19 @@ export const getConfigs = () => {
   // of the same key found in the configuration file ($GridConfigs).
   return Object.fromEntries(
     Object.keys(GridConfigs)
-      .filter((key) =>
-        Object.prototype.hasOwnProperty.call(CustomCssProperties, key)
+      .filter((key) => {
+
+        console.log("Object.prototype.hasOwnProperty.call(CustomCssProperties, key) => ", Object.prototype.hasOwnProperty.call(CustomCssProperties, key))
+         
+         return  Object.prototype.hasOwnProperty.call(CustomCssProperties, key)
+      }
       )
-      .map((configKey) => [CustomCssProperties.configKey, configKey.configKey])
+      .map((configKey) => {
+          
+        console.log(" key ==> ", configKey)
+
+        return [CustomCssProperties[configKey], GridConfigs[configKey]]
+    })
   );
 };
 

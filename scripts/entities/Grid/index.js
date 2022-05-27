@@ -8,15 +8,18 @@ export default class Grid {
 
   constructor($element) {
     let _cells = [];
-
     if (!$element) return;
+
     _cells = Array.from($element.children);
+
+    console.log("getConfigs() => ", getConfigs())
 
     setCssProps.call($element, getConfigs());
 
     this.getCells = function () {
       return _cells;
     };
+
     this.setCells = function (cells) {
       _cells = cells;
     };
