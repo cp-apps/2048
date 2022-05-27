@@ -43,7 +43,7 @@ export default class Grid {
 
   }
 
-  getRandomCell() {
+  getRandomEmptyCell() {
     const emptyCells = this.getEmptyCells();
     return emptyCells[Math.floor(Math.random() * emptyCells.length)]
   };

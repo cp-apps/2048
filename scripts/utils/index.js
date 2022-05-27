@@ -50,7 +50,7 @@ export const initGame = (grid, defaultTileCount=2) => {
     const element = grid.getElement();
 
     for(let i = 0; i < defaultTileCount; i++)  {
-        grid.getRandomCell().setTile(
+        grid.getRandomEmptyCell().setTile(
             new Tile(element, getRandomTileValue())
         );
     }
