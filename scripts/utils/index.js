@@ -19,48 +19,18 @@ export const setCssProps = function (propsObject) {
 
 export const Mixin = (SuperClass) => class extends SuperClass {};
 
-export const getConfigs = () => {
+export const CssConfigs = (() => {
   // Automatically overwrite the default css configs by overwritting
   // the default value of attributes in $CustomCssProperties by a value
   // of the same key found in the configuration file ($GridConfigs).
   return Object.fromEntries(
     Object.keys(GridConfigs)
       .filter((key) => {
-
-        console.log("Object.prototype.hasOwnProperty.call(CustomCssProperties, key) => ", Object.prototype.hasOwnProperty.call(CustomCssProperties, key))
-         
-         return  Object.prototype.hasOwnProperty.call(CustomCssProperties, key)
-      }
-      )
+        return Object.prototype.hasOwnProperty.call(CustomCssProperties, key);
+      })
       .map((configKey) => {
-          
-        console.log(" key ==> ", configKey)
-
-        return [CustomCssProperties[configKey], GridConfigs[configKey]]
-    })
+        return [CustomCssProperties[configKey], GridConfigs[configKey]];
+      })
   );
-};
+})();
 
-export class Point {
-  constructor(x, y) {
-    let _x = x;
-    let _y = y;
-
-    this.getX = function () {
-      return _x;
-    };
-    this.setX = function (x) {
-      _x = x;
-      return this;
-    };
-
-    this.getX = function () {
-      return _x;
-    };
-
-    this.setY = function (y) {
-      _y = y;
-      return this;
-    };
-  }
-}

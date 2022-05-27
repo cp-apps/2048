@@ -1,20 +1,24 @@
-import Cell from "../Cell/index.js";
-import { selectElements, setCssProps, getConfigs } from "../../utils/index.js";
-
+import { Cell } from "../../entities/index.js";
+import { setCssProps, CssConfigs } from "../../utils/index.js";
+import Position from "../Position/index.js";
+import { GRID_DIM } from "../../configs/index.js";
 
 export default class Grid {
-  // We choose to not use the recent JS-private
-  // syntaxe to avoid browsers support problems.
+  constructor(element) {
+    if (!element) return;
 
-  constructor($element) {
-    let _cells = [];
-    if (!$element) return;
+    let _cells = Array.from(element.children, (childElement, childIndex) => {
+      // Note that " $childIndex = $y * $GRID_DIM + $x ".
+      // Where $x and $y are the coordinates of the
+      // corresponding point on the game board.
+      const childPosition = new Position(
+        childIndex % GRID_DIM,
+        Math.floor(childIndex / GRID_DIM)
+      );
+      return new Cell(childElement, childPosition);
+    });
 
-    _cells = Array.from($element.children);
-
-    console.log("getConfigs() => ", getConfigs())
-
-    setCssProps.call($element, getConfigs());
+    setCssProps.call(element, CssConfigs);
 
     this.getCells = function () {
       return _cells;

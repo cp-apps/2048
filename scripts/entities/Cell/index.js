@@ -5,7 +5,7 @@ export default class Cell {
     let _$element = $element;
 
     this.getPosition = function () {
-      return x;
+      return _position;
     };
     this.setPosition = function (position) {
 		_position = position;
