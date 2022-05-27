@@ -56,3 +56,10 @@ export const initGame = (grid, defaultTileCount=2) => {
     }
 
 };
+
+export const getCoordinates = (index) => ({
+    // Note that with $x and $y as the cell position on
+    // the board, " $childIndex = $y * $GRID_DIM + $x ".
+    x: index % GridConfigs.GRID_DIM,
+    y: Math.floor(index / GridConfigs.GRID_DIM),
+})
