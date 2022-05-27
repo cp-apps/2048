@@ -41,7 +41,7 @@ export const CssConfigs = (() => {
 
 
 export const getRandomTileValue = (initialTileCount=2) => {
-    return Math.pow(2, Math.floor(Math.random() * initialTileCount));
+    return Math.pow(2, Math.ceil(Math.random() * initialTileCount));
 };
 
 
