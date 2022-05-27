@@ -1,0 +1,45 @@
+@import "./variables.css";
+
+
+#board {
+	display: grid;
+	position: relative;
+	grid-template-columns: repeat(var(--grid-dim), var(--grid-cell-size));
+	grid-template-rows: repeat(var(--grid-dim), var(--grid-cell-size));
+	gap: var(--grid-gap);
+	background-color: var(--grid-background-color);
+	padding: var(--grid-gap);
+	border-radius: var(--border-radius);
+}
+
+.cell {
+	border-radius: var(--cell-border-radius);
+	background-color: blue;
+	top: calc(var(--y) + var(--grid-gap));
+	left: calc(var(--x) + var(--grid-gap));
+	width: var(--grid-cell-size);
+	height: var(--grid-cell-size);
+}
+
+.tile {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: var(--grid-cell-size);
+	height: var(--grid-cell-size);
+	border-radius: var(--tile-border-radius);
+	top: calc(var(--y) * (var(--grid-cell-size) + var(--grid-gap)) + var(--grid-gap));
+	left: calc(var(--x) * (var(--grid-cell-size) + var(--grid-gap)) + var(--grid-gap));
+	background-color: hsl(200, 50%, var(--background-lightness));
+	color: hsl(200, 50%, var(--text-lightness));
+	animation: show-tile 200ms ease-in-out;
+	transition: 100ms ease-in-out;
+}
+
+@keyframes show-tile {
+    0% {
+			opacity: .5;
+			transform: scale(0);
+		}
+}

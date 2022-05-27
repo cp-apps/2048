@@ -1,0 +1,20 @@
+:root {
+    --background-color: white;
+    --font-family: Arial;
+    --grid-dim: 4;
+    --grid-cell-size: 20vmin;
+    --grid-gap: 1vmin;
+    --border-radius: 1vmin;
+    --grid-border-radius: 1vmin;
+    --cell-border-radius: 1vmin;
+    --tile-border-radius: 1vmin;
+    --grid-background-color: #CCC;
+    --cell-background-color: #CCC;
+}
+
+.tile {
+    --x: 1;
+	--y: 1;
+	--background-lightness: 20%;
+	--text-lightness: 80%;
+}
