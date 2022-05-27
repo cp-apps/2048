@@ -11,7 +11,7 @@ export default class Position {
           return this;
         };
     
-        this.getX = function () {
+        this.getY = function () {
           return _x;
         };
     

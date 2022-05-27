@@ -20,6 +20,7 @@ export default class Cell {
 
     this.setTile = function (tile) {
 		_tile = tile;
+		tile.setPosition(_position);
     };
 
 	this.destroyTile = function() {

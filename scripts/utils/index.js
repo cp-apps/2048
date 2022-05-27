@@ -5,7 +5,7 @@ import { Tile } from "../entities/index.js";
 export const selectElement = (selector) => document.querySelector(selector);
 export const selectElements = (selector) => document.querySelectorAll(selector);
 
-export const createElement = (elementTagName, options) => document.createElement(elementTagName, options);
+export const createElement = (elementTagName="div", options) => document.createElement(elementTagName, options);
 export const removeElement = (element) => element.remove();
 
 export const setCssProp = function (propertyName, propertyValue) {
