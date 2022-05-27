@@ -4,6 +4,9 @@ import * as GridConfigs from "../configs/index.js";
 export const selectElement = (selector) => document.querySelector(selector);
 export const selectElements = (selector) => document.querySelectorAll(selector);
 
+export const createElement = (elementTagName, options) => document.createElement(elementTagName, options);
+export const removeElement = (element) => element.remove();
+
 export const setCssProp = function (propertyName, propertyValue) {
   // Function expression in other to reference the real caller of the
   // function in its logic. We don't want to pass to node explicitly.
@@ -16,6 +19,7 @@ export const setCssProps = function (propsObject) {
     setCssProp.call(this, propEntry[0], propEntry[1])
   );
 };
+
 
 export const Mixin = (SuperClass) => class extends SuperClass {};
 

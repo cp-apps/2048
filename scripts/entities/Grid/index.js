@@ -7,18 +7,17 @@ export default class Grid {
   constructor(element) {
     if (!element) return;
 
+    setCssProps.call(element, CssConfigs);
+
     let _cells = Array.from(element.children, (childElement, childIndex) => {
-      // Note that " $childIndex = $y * $GRID_DIM + $x ".
-      // Where $x and $y are the coordinates of the
-      // corresponding point on the game board.
+      // Note that with $x and $y as the cell position on
+      // the board, " $childIndex = $y * $GRID_DIM + $x ".
       const childPosition = new Position(
         childIndex % GRID_DIM,
         Math.floor(childIndex / GRID_DIM)
       );
       return new Cell(childElement, childPosition);
     });
-
-    setCssProps.call(element, CssConfigs);
 
     this.getCells = function () {
       return _cells;
@@ -27,5 +26,23 @@ export default class Grid {
     this.setCells = function (cells) {
       _cells = cells;
     };
+
+    this.resetCells = function() {
+        _cells.forEach((cell) => cell.reset())
+    };
+
+    this.getEmptyCells = function() {
+        return _cells.filter((cell) => cell.getTile() == null)
+    };
+
+    this.getRandomCell() = function() {
+        
+    };
+
   }
+
+  getRandomCell() {
+    return Math.floor(Math.random() * this.getEmptyCells().length)
+  }
+
 }
