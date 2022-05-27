@@ -9,6 +9,8 @@ export default class Grid {
 
     setCssProps.call(element, CssConfigs);
 
+    let _element = element;
+
     let _cells = Array.from(element.children, (childElement, childIndex) => {
       // Note that with $x and $y as the cell position on
       // the board, " $childIndex = $y * $GRID_DIM + $x ".
@@ -18,6 +20,10 @@ export default class Grid {
       );
       return new Cell(childElement, childPosition);
     });
+
+    this.getElement = function() {
+        return _element;
+    }
 
     this.getCells = function () {
       return _cells;
@@ -35,14 +41,11 @@ export default class Grid {
         return _cells.filter((cell) => cell.getTile() == null)
     };
 
-    this.getRandomCell() = function() {
-        
-    };
-
   }
 
   getRandomCell() {
-    return Math.floor(Math.random() * this.getEmptyCells().length)
-  }
+    const emptyCells = this.getEmptyCells();
+    return emptyCells[Math.floor(Math.random() * emptyCells.length)]
+  };
 
 }

@@ -1,37 +1,35 @@
 import Position from "../../entities/Position/index.js";
-import { removeElement } from "../../utils/index.js";
+import { removeElement, createElement } from "../../utils/index.js";
 
 export default class Tile {
-    constructor(container, position, value) {
-        let _position = position
-        let _element = container.appendChild(
-            createElement("div").classList.add('.tile')
-        );
+  constructor(container, value) {
+    let _position;
+    let _element = container.appendChild(createElement("div"));
 
-        this.getPosition = function () {
-            return _position;
-        };
+    _element.classList.add("tile");
+    _element.textContent = value;
 
-        this.setPosition = function (position) {
-            _position = position;
-        };
-        
-        // Kinda two-ways binding for $_value
-        this.setValue = function(value) {
-            _element.textContent = value;
+    this.getPosition = function () {
+      return _position;
+    };
 
-            // TODO: Background color and text light
-        };
-    
-        this.getValue = function () {
-            return _element.textContent;
-        };
+    this.setPosition = function (position) {
+      _position = position;
+    };
 
-        this.destroy = function() {
-            removeElement(_element);
-        };
-    }
+    // Kinda two-ways binding for $_value
+    this.setValue = function (value) {
+      _element.textContent = value;
 
+      // TODO: Background color and text light
+    };
 
-};
+    this.getValue = function () {
+      return _element.textContent;
+    };
 
+    this.destroy = function () {
+      removeElement(_element);
+    };
+  }
+}

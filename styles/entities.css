@@ -33,6 +33,8 @@
 	left: calc(var(--x) * (var(--grid-cell-size) + var(--grid-gap)) + var(--grid-gap));
 	background-color: hsl(200, 50%, var(--background-lightness));
 	color: hsl(200, 50%, var(--text-lightness));
+	font-size: var(--tile-font-size);
+	font-weight: var(--tile-font-weight);
 	animation: show-tile 200ms ease-in-out;
 	transition: 100ms ease-in-out;
 }

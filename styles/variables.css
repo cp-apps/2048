@@ -17,4 +17,7 @@
 	--y: 1;
 	--background-lightness: 20%;
 	--text-lightness: 80%;
+    --tile-text-ratio-grid-size: .4;
+    --tile-font-size: calc(var(--grid-cell-size) * var(--tile-text-ratio-grid-size));
+    --tile-font-weight: 700;
 }

@@ -1,5 +1,6 @@
 import { CustomCssProperties } from "../constants/index.js";
 import * as GridConfigs from "../configs/index.js";
+import { Tile } from "../entities/index.js";
 
 export const selectElement = (selector) => document.querySelector(selector);
 export const selectElements = (selector) => document.querySelectorAll(selector);
@@ -38,3 +39,20 @@ export const CssConfigs = (() => {
   );
 })();
 
+
+export const getRandomTileValue = (initialTileCount=2) => {
+    return Math.pow(2, Math.floor(Math.random() * initialTileCount));
+};
+
+
+export const initGame = (grid, defaultTileCount=2) => {
+
+    const element = grid.getElement();
+
+    for(let i = 0; i < defaultTileCount; i++)  {
+        grid.getRandomCell().setTile(
+            new Tile(element, getRandomTileValue())
+        );
+    }
+
+};
